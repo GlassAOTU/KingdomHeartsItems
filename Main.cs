@@ -2,11 +2,13 @@
 using KingdomHeartsItems.Items;
 using R2API;
 using R2API.Utils;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using UnityEngine;
+using static RoR2.Console;
 
 namespace KingdomHeartsItems
 {
@@ -14,11 +16,12 @@ namespace KingdomHeartsItems
     [BepInDependency(R2API.R2API.PluginGUID, R2API.R2API.PluginVersion)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [R2APISubmoduleDependency(nameof(ItemAPI), nameof(LanguageAPI), nameof(EliteAPI))]
+
     public class Main : BaseUnityPlugin
     {
         public const string ModGuid = "com.GlassAOTU.KingdomHeartsItems";
         public const string ModName = "Kingdom Hearts Items";
-        public const string ModVer = "0.1.0";
+        public const string ModVer = "0.1.1";
 
         public static AssetBundle MainAssets;
 
@@ -35,13 +38,23 @@ namespace KingdomHeartsItems
             // Look here for info on how to set these up: https://github.com/KomradeSpectre/AetheriumMod/blob/rewrite-master/Tutorials/Item%20Mod%20Creation.md#unity-project
             // (This is a bit old now, but the information on setting the unity asset bundle should be the same.)
 
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("KingdomHeartsItems.Assets.kingdomheartsitems_assets"))
+            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("KingdomHeartsItems.KingdomHeartsItems"))
             {
-                MainAssets = AssetBundle.LoadFromStream(stream);
+                if (stream != null)
+                {
+                    MainAssets = AssetBundle.LoadFromStream(stream);
+
+                    ModLogger.LogMessage("Successfully loaded assets.");
+                }
+                else
+                {
+                    ModLogger.LogError("ERROR: Assets failed to load.");
+                }
             }
 
             //This section automatically scans the project for all items
             var ItemTypes = Assembly.GetExecutingAssembly().GetTypes().Where(type => !type.IsAbstract && type.IsSubclassOf(typeof(ItemBase)));
+            ModLogger.LogMessage(ItemTypes);
 
             foreach (var itemType in ItemTypes)
             {

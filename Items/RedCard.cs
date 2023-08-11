@@ -23,9 +23,9 @@ namespace KingdomHeartsItems.Items
 
         public override ItemTier Tier => ItemTier.Tier1;
 
-        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("RedCardPrefab.prefab");
+        public override GameObject ItemModel => MainAssets.LoadAsset<GameObject>("Assets/Models/Prefabs/Item/Red Card/RedCardPrefab.prefab");
 
-        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("RedCardCommonIcon.png");
+        public override Sprite ItemIcon => MainAssets.LoadAsset<Sprite>("Assets/Textures/Icons/Item/RedCardCommonIcon.png");
 
         public override ItemDisplayRuleDict CreateItemDisplayRules()
         {

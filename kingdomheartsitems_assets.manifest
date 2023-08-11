@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 510174109
+CRC: 2590348183
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b8034430e55bd623ddf6856b642b1826
+    Hash: ef7596b42e5f84c86f8b041231799338
   TypeTreeHash:
     serializedVersion: 2
     Hash: 21747e4ee48f36c7a65f9afbfd77f392
@@ -28,10 +28,10 @@ ClassTypes:
 - Class: 213
   Script: {instanceID: 0}
 Assets:
-- Assets/Assets/Models/Meshes/RedCardMesh.blend
-- Assets/Assets/Models/Prefabs/Item/Red Card/RedCardPrefab.prefab
-- Assets/Assets/Textures/Icons/Item/RedCardCommonIcon.png
-- Assets/Assets/Textures/Materials/Item/Red Card/RedCardMaterial.mat
-- Assets/Assets/Textures/Materials/Item/Red Card/RedCardBack.png
-- Assets/Assets/Textures/Materials/Item/Red Card/RedCardFront.png
+- Assets/Models/Meshes/RedCardMesh.blend
+- Assets/Models/Prefabs/Item/Red Card/RedCardPrefab.prefab
+- Assets/Textures/Icons/Item/RedCardCommonIcon.png
+- Assets/Textures/Materials/Item/Red Card/RedCardMaterial.mat
+- Assets/Textures/Materials/Item/Red Card/RedCardBack.png
+- Assets/Textures/Materials/Item/Red Card/RedCardFront.png
 Dependencies: []
